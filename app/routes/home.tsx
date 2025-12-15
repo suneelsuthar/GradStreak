@@ -19,19 +19,14 @@ import PhoneImg from "../assets/icons/mobile_img.png";
 import RankArrowIcon from "../assets/icons/rank_arrow.svg";
 import StarIcon from "../assets/icons/star.svg";
 import ArrowIcon from "../assets/icons/join_arrow.svg";
-import { useState } from "react";
-import WaitlistModal from "../components/WaitlistModal";
+import { useWaitlist } from "../context/WaitlistContext";
 
 const Home = () => {
-  const [isWaitlistModalOpen, setIsWaitlistModalOpen] = useState(false);
+  const { openWaitlistModal } = useWaitlist();
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
-      <WaitlistModal
-        isOpen={isWaitlistModalOpen}
-        onClose={() => setIsWaitlistModalOpen(false)}
-      />
 
       <main className="flex-grow">
         <section
@@ -92,7 +87,7 @@ const Home = () => {
 
                 <div className="flex flex-wrap gap-4">
                   <button
-                    onClick={() => setIsWaitlistModalOpen(true)}
+                    onClick={openWaitlistModal}
                     className="inline-flex items-center gap-2 text-white px-6 py-3 rounded-full hover:bg-emerald-700 transition-colors"
                     style={{
                       backgroundColor: "#197C2C",

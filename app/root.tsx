@@ -23,6 +23,16 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
+import { WaitlistProvider, useWaitlist } from "./context/WaitlistContext";
+import WaitlistModal from "./components/WaitlistModal";
+
+function GlobalWaitlist() {
+  const { isWaitlistModalOpen, closeWaitlistModal } = useWaitlist();
+  return (
+    <WaitlistModal isOpen={isWaitlistModalOpen} onClose={closeWaitlistModal} />
+  );
+}
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -33,7 +43,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <WaitlistProvider>
+          {children}
+          <GlobalWaitlist />
+        </WaitlistProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
