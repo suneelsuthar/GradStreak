@@ -7,7 +7,7 @@ const Features = () => {
       <Navbar />
 
       <main className="flex-grow flex items-center justify-center">
-        <div className="container mx-auto px-4 py-20 text-center">
+        <div className="container mx-auto px-4 pt-40 pb-20 text-center">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Key Features
           </h1>
