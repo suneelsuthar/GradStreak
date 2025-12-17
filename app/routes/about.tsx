@@ -14,8 +14,10 @@ import Solution4 from "../assets/icons/solution4.jpg";
 import Motivated from "../assets/icons/motivated.svg";
 import Org from "../assets/icons/org.svg";
 import Arrow from "../assets/icons/about-arrow.svg";
+import { useWaitlist } from "../context/WaitlistContext";
 
 const About = () => {
+  const { openWaitlistModal } = useWaitlist();
   return (
     <div className="min-h-screen flex flex-col bg-[#F8FAF9]">
       <Navbar />
@@ -476,13 +478,14 @@ const About = () => {
                   </div>
                 </div>
                 <div className="mt-8 flex justify-center">
-                  <a
-                    href="#"
+                  <button
+                    type="button"
+                    onClick={openWaitlistModal}
                     className="inline-flex items-center justify-center rounded-full bg-white text-[#197C2C] font-regular px-6 py-3 shadow-sm hover:shadow-md transition"
                     style={{ fontSize: 15 }}
                   >
                     Join the Movement
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
