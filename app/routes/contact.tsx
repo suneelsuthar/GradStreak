@@ -13,11 +13,14 @@ const Contact = () => {
     if (!email || !message) return;
     setStatus("loading");
     try {
-      const response = await fetch("/api/waitlist", {
+      const response = await fetch(
+        "https://wfyqbfeontndczdhegnx.supabase.co/functions/v1/waitlist-processor",
+        {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, message, type: "contact" }),
-      });
+        }
+      );
       if (response.ok) {
         setStatus("success");
         setEmail("");

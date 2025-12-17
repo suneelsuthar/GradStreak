@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Logo from "./../assets/icons/logo.svg";
 import { useWaitlist } from "../context/WaitlistContext";
 import ArrowIcon from "../assets/icons/join_arrow.svg";
@@ -9,9 +9,27 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const isActive = (to: string) => pathname === to;
   const { openWaitlistModal } = useWaitlist();
+  const [hideOnScroll, setHideOnScroll] = useState(false);
+  const lastYRef = useRef(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      const goingDown = y > lastYRef.current;
+      // Hide only after slight scroll and when menu is closed
+      if (!open && y > 80 && goingDown) {
+        setHideOnScroll(true);
+      } else {
+        setHideOnScroll(false);
+      }
+      lastYRef.current = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [open]);
   return (
     <nav
-      className="sticky top-0 z-50"
+      className={`sticky top-0 z-50 transform transition-transform duration-300 ${hideOnScroll ? "-translate-y-full" : "translate-y-0"}`}
       style={{
         marginTop: -170,
       }}
@@ -34,31 +52,49 @@ const Navbar = () => {
 
           <div className="hidden md:flex items-center gap-8">
             <div className="flex flex-col items-center">
-              <Link to="/about" className="text-gray-700 hover:text-gray-900">
+              <Link
+                to="/about"
+                className="hover:text-gray-900"
+                style={{ color: isActive("/about") ? "#197C2C" : "#374151",fontWeight:
+                  isActive("/about") ? "bold" : "normal"
+                 }}
+              >
                 About
               </Link>
-              <span
-                className={`${isActive("/about") ? "bg-emerald-600" : "bg-transparent"} h-0.5 w-6 rounded-full mt-1`}
-              ></span>
+              {/* <span
+                className={`h-0.5 w-6 rounded-full mt-1`}
+                style={{ backgroundColor: isActive("/about") ? "#197C2C" : "transparent" }}
+              ></span> */}
             </div>
             <div className="flex flex-col items-center">
               <Link
                 to="/features"
-                className="text-gray-700 hover:text-gray-900"
+                className="hover:text-gray-900"
+                style={{ color: isActive("/features") ? "#197C2C" : "#374151",fontWeight:
+                  isActive("/features") ? "bold" : "normal"
+                 }}
               >
                 Features
               </Link>
-              <span
-                className={`${isActive("/features") ? "bg-emerald-600" : "bg-transparent"} h-0.5 w-6 rounded-full mt-1`}
-              ></span>
+              {/* <span
+                className={`h-0.5 w-6 rounded-full mt-1`}
+                style={{ backgroundColor: isActive("/features") ? "#197C2C" : "transparent" }}
+              ></span> */}
             </div>
             <div className="flex flex-col items-center">
-              <Link to="/contact" className="text-gray-700 hover:text-gray-900">
+              <Link
+                to="/contact"
+                className="hover:text-gray-900"
+                style={{ color: isActive("/contact") ? "#197C2C" : "#374151",fontWeight:
+                  isActive("/contact") ? "bold" : "normal"
+                 }}
+              >
                 Contact
               </Link>
-              <span
-                className={`${isActive("/contact") ? "bg-emerald-600" : "bg-transparent"} h-0.5 w-6 rounded-full mt-1`}
-              ></span>
+              {/* <span
+                className={`h-0.5 w-6 rounded-full mt-1`}
+                style={{ backgroundColor: isActive("/contact") ? "#197C2C" : "transparent" }}
+              ></span> */}
             </div>
           </div>
 
@@ -106,36 +142,42 @@ const Navbar = () => {
                   <Link
                     to="/about"
                     onClick={() => setOpen(false)}
-                    className="text-gray-900 text-base"
+                    className="text-base"
+                    style={{ color: isActive("/about") ? "#197C2C" : "#111827" }}
                   >
                     About
                   </Link>
                   <span
-                    className={`${isActive("/about") ? "bg-emerald-600" : "bg-transparent"} h-0.5 w-8 rounded-full mt-1`}
+                    className={`h-0.5 w-8 rounded-full mt-1`}
+                    style={{ backgroundColor: isActive("/about") ? "#197C2C" : "transparent" }}
                   ></span>
                 </div>
                 <div className="flex flex-col items-start">
                   <Link
                     to="/features"
                     onClick={() => setOpen(false)}
-                    className="text-gray-900 text-base"
+                    className="text-base"
+                    style={{ color: isActive("/features") ? "#197C2C" : "#111827" }}
                   >
                     Features
                   </Link>
                   <span
-                    className={`${isActive("/features") ? "bg-emerald-600" : "bg-transparent"} h-0.5 w-8 rounded-full mt-1`}
+                    className={`h-0.5 w-8 rounded-full mt-1`}
+                    style={{ backgroundColor: isActive("/features") ? "#197C2C" : "transparent" }}
                   ></span>
                 </div>
                 <div className="flex flex-col items-start">
                   <Link
                     to="/contact"
                     onClick={() => setOpen(false)}
-                    className="text-gray-900 text-base"
+                    className="text-base"
+                    style={{ color: isActive("/contact") ? "#197C2C" : "#111827" }}
                   >
                     Contact
                   </Link>
                   <span
-                    className={`${isActive("/contact") ? "bg-emerald-600" : "bg-transparent"} h-0.5 w-8 rounded-full mt-1`}
+                    className={`h-0.5 w-8 rounded-full mt-1`}
+                    style={{ backgroundColor: isActive("/contact") ? "#197C2C" : "transparent" }}
                   ></span>
                 </div>
                 <button
