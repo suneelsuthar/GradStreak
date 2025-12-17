@@ -1,15 +1,19 @@
 import { Link, useLocation } from "react-router";
 import { useState } from "react";
 import Logo from "./../assets/icons/logo.svg";
+import { useWaitlist } from "../context/WaitlistContext";
+import ArrowIcon from "../assets/icons/join_arrow.svg";
+
 const Navbar = () => {
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
   const isActive = (to: string) => pathname === to;
+  const { openWaitlistModal } = useWaitlist();
   return (
     <nav
       className="sticky top-0 z-50"
       style={{
-        marginTop:  -170,
+        marginTop: -170,
       }}
     >
       <div className="container mx-auto px-4 py-4">
@@ -59,16 +63,17 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:block">
-            <Link
-              to="/get-started"
-              className="inline-flex items-center rounded-full text-white px-4 py-2 font-semibold transition-colors shadow-sm"
+            <button
+              onClick={openWaitlistModal}
+              className="inline-flex items-center gap-2 rounded-full text-white px-4 py-2 font-semibold transition-colors shadow-sm hover:bg-emerald-700"
               style={{
                 backgroundColor: "#197C2C",
                 fontSize: 14,
               }}
             >
               JOIN WAITLIST
-            </Link>
+              <img src={ArrowIcon} alt="" />
+            </button>
           </div>
 
           <button
@@ -133,14 +138,16 @@ const Navbar = () => {
                     className={`${isActive("/contact") ? "bg-emerald-600" : "bg-transparent"} h-0.5 w-8 rounded-full mt-1`}
                   ></span>
                 </div>
-                <Link
-                  to="/get-started"
-                  onClick={() => setOpen(false)}
+                <button
+                  onClick={() => {
+                    setOpen(false);
+                    openWaitlistModal();
+                  }}
                   className="mt-2 inline-flex items-center justify-center rounded-full text-white px-4 py-2 font-semibold"
                   style={{ backgroundColor: "#197C2C", fontSize: 14 }}
                 >
                   JOIN WAITLIST
-                </Link>
+                </button>
               </nav>
             </div>
           </div>
