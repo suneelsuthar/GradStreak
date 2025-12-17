@@ -59,14 +59,14 @@ const Home = () => {
                     className="text-emerald-600"
                     style={{ color: "#197C2C" }}
                   >
-                    Achieve Your
+                    Succeed In
                   </span>
                   <br />
                   <span
                     style={{ color: "#197C2C" }}
                     className="text-emerald-600"
                   >
-                    Goals
+                    School
                   </span>
                 </h1>
 
