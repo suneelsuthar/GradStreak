@@ -1,36 +1,141 @@
+import { useRef } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
+import { Bell, Trophy, Calendar } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-const Features = () => {
+// Using the brand primary color #197C2C
+const features = [
+  {
+    title: "Automatic Assignment Tracking",
+    description:
+      "Stop wasting time on data entry. GradStreak seamlessly syncs with your coursework to capture every assignment, exam, and deadline automatically—so your dashboard is always ready when you are.",
+    icon: Calendar,
+    color: "from-[#197C2C] to-[#4ade80]", // Brand Green to Light Green
+  },
+  {
+    title: "Smart Reminders",
+    description:
+      "Beat procrastination with AI-driven nudges. Unlike basic alarms, our smart reminders adapt to your schedule, alerting you at the optimal time to start working so you never miss a deadline.",
+    icon: Bell,
+    color: "from-[#197C2C] to-[#2dd4bf]", // Brand Green to Teal
+  },
+  {
+    title: "Gamification",
+    description:
+      "Level up your learning. Turn consistency into a game with daily streaks, XP rewards, and competitive leaderboards that make studying as addictive as scrolling.",
+    icon: Trophy,
+    color: "from-[#197C2C] to-[#a3e635]", // Brand Green to Lime
+  },
+];
+
+const FeatureCard = ({ feature, index }: { feature: any; index: number }) => {
+  const isEven = index % 2 === 0;
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.6, delay: index * 0.2 }}
+      className={`relative flex items-center justify-between mb-24 w-full ${
+        isEven ? "flex-row-reverse" : ""
+      }`}
+    >
+      {/* Spacer for the other side */}
+      <div className="hidden md:block w-5/12" />
+
+      {/* Center Point */}
+      <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-white border-4 border-gray-100 z-10 shadow-lg">
+        <div
+          className={`w-4 h-4 rounded-full bg-gradient-to-r ${feature.color}`}
+        />
+      </div>
+
+      {/* Content Card */}
+      <div className="w-full pl-16 md:pl-0 md:w-5/12">
+        <div className="group relative p-8 rounded-2xl bg-white border border-gray-100 hover:border-[#197C2C]/30 transition-colors duration-300 shadow-xl overflow-hidden hover:shadow-2xl">
+          {/* Hover Gradient Effect */}
+          <div
+            className={`absolute inset-0 opacity-0 group-hover:opacity-5 bg-gradient-to-br ${feature.color} transition-opacity duration-500`}
+          />
+
+          <div
+            className={`inline-flex items-center justify-center p-3 rounded-xl mb-6 text-white bg-gradient-to-br ${feature.color} shadow-lg shadow-gray-200`}
+          >
+            <feature.icon size={24} className="text-white" />
+          </div>
+
+          <h3 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">
+            {feature.title}
+          </h3>
+          <p className="text-gray-600 leading-relaxed text-lg">
+            {feature.description}
+          </p>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+const Features = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
+  return (
+    <div className="min-h-screen flex flex-col bg-white text-gray-900 selection:bg-[#197C2C]/30">
       <Navbar />
 
-      <main className="flex-grow flex items-center justify-center">
-        <div className="container mx-auto px-4 pt-40 pb-20 text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Key Features
-          </h1>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 text-left">
-            <div className="p-6 border rounded-xl shadow-sm">
-              <h3 className="text-xl font-semibold mb-2">Streak Tracking</h3>
-              <p className="text-gray-600">
-                Keep your study streak alive and earn rewards for consistency.
-              </p>
+      <main className="flex-grow">
+        {/* Helper layout grid background - subtle for light mode */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
+
+        <div className="container mx-auto px-4 pt-48 pb-32 relative">
+          <div className="text-center mb-32 max-w-3xl mx-auto">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-5xl md:text-7xl font-bold mb-8 text-gray-900"
+            >
+              Built for <span className="text-[#197C2C]">Consistency</span>.
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-xl text-gray-600 leading-relaxed"
+            >
+              Everything you need to turn chaotic studying into a seamless
+              streak of success.
+            </motion.p>
+          </div>
+
+          <div
+            ref={containerRef}
+            className="relative max-w-6xl mx-auto min-h-[800px]"
+          >
+            {/* Vertical Line */}
+            <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-100 transform -translate-x-1/2">
+              <motion.div
+                style={{ scaleY, transformOrigin: "top" }}
+                className="absolute top-0 left-0 w-full h-full bg-[#197C2C]"
+              />
             </div>
-            <div className="p-6 border rounded-xl shadow-sm">
-              <h3 className="text-xl font-semibold mb-2">Leaderboards</h3>
-              <p className="text-gray-600">
-                Compete with friends and classmates to see who stays the most
-                consistent.
-              </p>
-            </div>
-            <div className="p-6 border rounded-xl shadow-sm">
-              <h3 className="text-xl font-semibold mb-2">Smart Reminders</h3>
-              <p className="text-gray-600">
-                Get timely notifications to ensure you never miss a study
-                session.
-              </p>
+
+            <div className="relative z-10 pt-10">
+              {features.map((feature, index) => (
+                <FeatureCard key={index} feature={feature} index={index} />
+              ))}
             </div>
           </div>
         </div>
