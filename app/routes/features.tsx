@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 // Images
 import AssignmentMockup from "../assets/images/automatic assignment tracking.png";
 import GamificationMockup from "../assets/images/Gamification-mockup.png";
+import RemindersMockup from "../assets/images//notiifcations-mockup.png";
 
 // Using the brand primary color #197C2C
 const features = [
@@ -21,11 +22,11 @@ const features = [
   {
     title: "Smart Reminders",
     description:
-      "Beat procrastination with AI-driven nudges. Unlike basic alarms, our smart reminders adapt to your schedule, alerting you at the optimal time to start working so you never miss a deadline.",
+      "Beat procrastination with reminders that work on your schedule. GradStreak lets you customize how often and when you’re notified, so you get the right nudges to start early and stay on track—without being overwhelmed or missing deadlines.",
     icon: Bell,
     color: "from-[#197C2C] to-[#2dd4bf]", // Brand Green to Teal
     // Using AssignmentMockup as placeholder since no specific image was provided for Reminders yet.
-    image: AssignmentMockup,
+    image: RemindersMockup,
   },
   {
     title: "Gamification",
