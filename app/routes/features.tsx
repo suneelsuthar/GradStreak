@@ -60,11 +60,12 @@ const FeatureCard = ({ feature, index }: { feature: any; index: number }) => {
               className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-20 blur-2xl rounded-full group-hover:opacity-30 transition-opacity duration-500 scale-90`}
             />
 
-            {/* Transparent Image: Reduced max-w to 350px */}
+            {/* Transparent Image: Increased max-w to 500px to prevent blurriness */}
             <img
               src={feature.image}
               alt={feature.title}
-              className="relative z-10 w-full h-auto max-w-[250px] transform transition-transform duration-500 group-hover:scale-105 group-hover:rotate-1 drop-shadow-2xl"
+              className="relative z-10 w-full h-auto max-w-[250px] transform transition-transform duration-500 group-hover:scale-105 group-hover:rotate-1 drop-shadow-2xl antialiased"
+              style={{ imageRendering: "smooth" }}
             />
           </div>
         )}
@@ -103,7 +104,8 @@ const FeatureCard = ({ feature, index }: { feature: any; index: number }) => {
             <img
               src={feature.image}
               alt={feature.title}
-              className="w-full h-auto max-w-[350px] drop-shadow-md"
+              className="w-full h-auto max-w-[450px] drop-shadow-md"
+              style={{ imageRendering: "auto" }}
             />
           </div>
         </div>
