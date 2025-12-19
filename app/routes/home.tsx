@@ -2,21 +2,9 @@ import { Link } from "react-router";
 import GridBg from "../assets/icons/grid_bg.png";
 import Playstore from "../assets/icons/playstore.svg";
 import Appstore from "../assets/icons/appstore.svg";
-import Trophy from "../assets/icons/trophy.svg";
-import Texas from "../assets/icons/texas.svg";
-import TexasState from "../assets/icons/texas_state.svg";
-import Uni1 from "../assets/icons/uni_1.svg";
-import Uni2 from "../assets/icons/uni_2.svg";
-import Uni3 from "../assets/icons/uni_3.svg";
-import Rank1 from "../assets/icons/rank_1.png";
-import Rank2 from "../assets/icons/rank_2.png";
-import Rank3 from "../assets/icons/rank_3.png";
-import CalendarIcon from "../assets/icons/calendar.svg";
-import HistoryIcon from "../assets/icons/history.svg";
-import NewBadgeIcon from "../assets/icons/new_badge.svg";
+import HeroDesktop from "../assets/images/Hero-image-dekstop.png";
+import HeroMobile from "../assets/images/Hero-images-mobile.png";
 import Navbar from "../components/Navbar";
-import PhoneImg from "../assets/icons/mobile_img.png";
-import RankArrowIcon from "../assets/icons/rank_arrow.svg";
 import StarIcon from "../assets/icons/star.svg";
 import ArrowIcon from "../assets/icons/join_arrow.svg";
 import { useWaitlist } from "../context/WaitlistContext";
@@ -54,7 +42,7 @@ const Home = () => {
                   </span>
                 </div>
 
-                <h1 className="text-5xl sm:text-5xl md:text-5xl font-bold leading-[1.1] tracking-tight text-gray-900 mb-6">
+                <h1 className="text-5xl sm:text-5xl md:text-5xl font-bold leading-[1.2] tracking-[0.02em] text-gray-900 mb-6 ">
                   Motivate Yourself
                   <br />
                   To{" "}
@@ -166,218 +154,19 @@ const Home = () => {
               </div>
 
               {/* Right mockups */}
-              <div className="relative mt-10 lg:mt-0 flex flex-col items-left">
-                {/* Top 5 Ranking Card */}
-                <div className="w-full max-w-[360px] rounded-2xl backdrop-blur-sm border border-gray-100 shadow-inner shadow-[0_8px_30px_rgba(0,0,0,0.06)] p-4 ">
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-2">
-                      <div
-                        className="round bg-primary"
-                        style={{
-                          backgroundColor: "#197C2C",
-                          height: 33,
-                          width: 33,
-                          borderRadius: 11,
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                        }}
-                      >
-                        <img src={Trophy} alt="trophy" />
-                      </div>
-                      <div>
-                        <div
-                          className="text-sm font-regular text-black"
-                          style={{ color: "#000000" }}
-                        >
-                          The Top 5
-                        </div>
-                        <div className="text-xs" style={{ color: "#787878" }}>
-                          Texas Region
-                        </div>
-                      </div>
-                    </div>
-                    <img src={RankArrowIcon} />
-                  </div>
-                  <ul className="space-y-4 text-sm">
-                    <li className=" items-center justify-between">
-                      <div className="flex flex-column items-center gap-3">
-                        <img src={Rank1} className="w-7 h-7" alt="1" />
-                        <img src={Texas} alt="Texas A&M" />
-                        <div>
-                          <span
-                            className="text-gray-800"
-                            style={{ color: "#1F2937" }}
-                          >
-                            Texas A&M
-                          </span>
-                          <div
-                            className="font-regular"
-                            style={{ color: "#197C2C", fontSize: 13 }}
-                          >
-                            12,450 pts
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-
-                    <li className=" items-center justify-between">
-                      <div className="flex flex-column items-center gap-3">
-                        <img src={Rank2} className="w-7 h-7" alt="2" />
-                        <img src={TexasState} alt="Texas State University" />
-                        <div>
-                          <span className="text-gray-800">
-                            Texas State University
-                          </span>
-                          <div
-                            className="font-regular"
-                            style={{ color: "#197C2C", fontSize: 13 }}
-                          >
-                            11,230 pts
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-
-                    <li className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <img src={Rank3} className="w-7 h-7" alt="3" />
-                        <img src={Uni1} alt="University of Oklahoma" />
-
-                        <div>
-                          <span className="text-gray-800">
-                            University of Oklahoma
-                          </span>
-                          <div
-                            className="font-regular"
-                            style={{ color: "#197C2C", fontSize: 13 }}
-                          >
-                            10,890 pts
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <span className="w-6 h-6 inline-flex items-center justify-center rounded-full text-gray-700 text-xs font-semibold">
-                          4
-                        </span>
-                        <img src={Uni2} alt="University of North Texas" />
-
-                        <div>
-                          <span className="text-gray-800">
-                            University of Oklahoma
-                          </span>
-                          <div
-                            className="font-regular"
-                            style={{ color: "#197C2C", fontSize: 13 }}
-                          >
-                            9,670 pts
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <span className="w-6 h-6 inline-flex items-center justify-center rounded-full text-gray-700 text-xs font-semibold">
-                          5
-                        </span>
-                        <img src={Uni3} alt="SMU" />
-
-                        <div>
-                          <span className="text-gray-800">
-                            Southern Methodist University
-                          </span>
-                          <div
-                            className="font-regular"
-                            style={{ color: "#197C2C", fontSize: 13 }}
-                          >
-                            9,120 pts
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-
-                {/* Phone mock */}
-                <div className="mt-[200px] w-[260px] sm:w-[300px] lg:w-[500px] lg:h-[625px] mx-auto rotate-6 absolute -right-0 lg:mt-8 lg:-top-10 z-3">
-                  <img src={PhoneImg} />
-                </div>
-
-                {/* Notification cards */}
-                <div className="w-full max-w-[384px] space-y-3 mt-30 items-left">
-                  <div className="flex items-start gap-3 backdrop-blur-sm border border-gray-100 rounded-2xl shadow-inner shadow-[0_8px_30px_rgba(0,0,0,0.06)] p-4 translate-y-0">
-                    <div
-                      className="rounded-xl flex items-center justify-center"
-                      style={{
-                        backgroundColor: "#51A2FF",
-                        height: 48,
-                        width: 68,
-                      }}
-                    >
-                      <img src={CalendarIcon} alt="calendar" />
-                    </div>
-                    <div>
-                      <div
-                        className="text-sm font-medium text-gray-900"
-                        style={{ color: "#111827" }}
-                      >
-                        Heads Up for the Week Ahead
-                      </div>
-                      <div className="text-sm" style={{ color: "#787878" }}>
-                        Heads up! 3 assignments due this week. Plan now, relax
-                        later.
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3 backdrop-blur-sm border border-gray-100 rounded-2xl shadow-inner shadow-[0_8px_30px_rgba(0,0,0,0.06)] p-4 translate-y-1 md:-mt-6 md:ml-6">
-                    <div
-                      className="h-10 w-10 rounded-xl flex items-center justify-center"
-                      style={{
-                        backgroundColor: "#FF8904",
-                        height: 48,
-                        width: 58,
-                      }}
-                    >
-                      <img src={HistoryIcon} alt="clock" />
-                    </div>
-                    <div>
-                      <div
-                        className="text-sm font-medium text-gray-900"
-                        style={{ color: "#111827" }}
-                      >
-                        Math Homework due in 2 hours
-                      </div>
-                      <div className="text-sm" style={{ color: "#787878" }}>
-                        Time's almost up — submit Math Homework soon.
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3 backdrop-blur-sm border border-gray-100 rounded-2xl shadow-inner shadow-[0_8px_30px_rgba(0,0,0,0.06)] p-4 translate-y-2 md:-mt-6 md:ml-10">
-                    <div
-                      className="h-10 w-10 rounded-xl flex items-center justify-center"
-                      style={{
-                        backgroundColor: "#197C2C",
-                        height: 48,
-                        width: 48,
-                      }}
-                    >
-                      <img src={NewBadgeIcon} alt="new badge" />
-                    </div>
-                    <div>
-                      <div
-                        className="text-sm font-medium text-gray-900"
-                        style={{ color: "#111827" }}
-                      >
-                        New Badge Unlocked!
-                      </div>
-                      <div className="text-sm" style={{ color: "#787878" }}>
-                        You earned a new badge. Nice work!
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="relative mt-10 lg:mt-0 flex items-center justify-center">
+                {/* Desktop hero image */}
+                <img
+                  src={HeroDesktop}
+                  alt="GradStreak App Preview"
+                  className="hidden lg:block w-full max-w-[650px]"
+                />
+                {/* Mobile hero image */}
+                <img
+                  src={HeroMobile}
+                  alt="GradStreak App Preview"
+                  className="lg:hidden w-full max-w-[400px] mx-auto"
+                />
               </div>
             </div>
           </div>
