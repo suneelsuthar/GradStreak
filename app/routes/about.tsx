@@ -35,15 +35,17 @@ const About = () => {
               className="inline-flex items-center gap-2 rounded-full   px-3 py-2 text-sm font-regular mt-20"
               style={{
                 border: "1px solid rgba(45, 157, 120, 0.2)",
+                color: "#111827", // gray-900
               }}
             >
               <img src={StarIcon} />
               Transforming Student Success
             </div>
             <h1 className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight text-gray-900">
-              About <span className="text-emerald-600"
-              style={{ color: "#197C2C" }}
-              >GradStreak</span>
+              About{" "}
+              <span className="text-emerald-600" style={{ color: "#197C2C" }}>
+                GradStreak
+              </span>
             </h1>
             <p
               className="mt-4   text-lg"
@@ -116,7 +118,7 @@ const About = () => {
                   <div
                     className="relative overflow-hidden rounded-2xl ring-1 ring-rose-100
                     h-44 md:h-62
-                      
+
                     "
                     style={{
                       background:
@@ -143,7 +145,7 @@ const About = () => {
                   <div
                     className="relative overflow-hidden rounded-2xl ring-1 ring-rose-100
                     h-44 md:h-62
-                      
+
                     "
                     style={{
                       background:
@@ -170,7 +172,7 @@ const About = () => {
                   <div
                     className="relative overflow-hidden rounded-2xl ring-1 ring-rose-100
                     h-44 md:h-62
-                      
+
                     "
                     style={{
                       background:
@@ -236,7 +238,9 @@ const About = () => {
                     >
                       ✕
                     </span>
-                    <span>Hard work ≠ recognition.</span>
+                    <span style={{ color: "#374151" }}>
+                      Hard work ≠ recognition.
+                    </span>
                   </div>
                   <div className="mt-3 flex items-center gap-3 text-gray-700">
                     <span
@@ -248,10 +252,15 @@ const About = () => {
                     >
                       ✕
                     </span>
-                    <span>Productivity ≠ motivation.</span>
+                    <span style={{ color: "#374151" }}>
+                      Productivity ≠ motivation.
+                    </span>
                   </div>
                 </div>
-                <p className="mt-6 font-medium text-lg">
+                <p
+                  className="mt-6 font-medium text-lg text-gray-900"
+                  style={{ color: "#111827" }}
+                >
                   Academic effort needs a better system.
                 </p>
               </div>
@@ -280,7 +289,7 @@ const About = () => {
                     borderRadius: 100,
                     marginBottom: 40,
                     background: "linear-gradient(180deg, #2D9D7833, #1B5E6F33",
-                    marginTop:20
+                    marginTop: 20,
                   }}
                 >
                   <img

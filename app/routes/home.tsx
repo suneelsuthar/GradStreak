@@ -186,7 +186,10 @@ const Home = () => {
                         <img src={Trophy} alt="trophy" />
                       </div>
                       <div>
-                        <div className="text-sm font-regular text-black">
+                        <div
+                          className="text-sm font-regular text-black"
+                          style={{ color: "#000000" }}
+                        >
                           The Top 5
                         </div>
                         <div className="text-xs" style={{ color: "#787878" }}>
@@ -202,7 +205,12 @@ const Home = () => {
                         <img src={Rank1} className="w-7 h-7" alt="1" />
                         <img src={Texas} alt="Texas A&M" />
                         <div>
-                          <span className="text-gray-800">Texas A&M</span>
+                          <span
+                            className="text-gray-800"
+                            style={{ color: "#1F2937" }}
+                          >
+                            Texas A&M
+                          </span>
                           <div
                             className="font-regular"
                             style={{ color: "#197C2C", fontSize: 13 }}
@@ -311,7 +319,10 @@ const Home = () => {
                       <img src={CalendarIcon} alt="calendar" />
                     </div>
                     <div>
-                      <div className="text-sm font-medium text-gray-900">
+                      <div
+                        className="text-sm font-medium text-gray-900"
+                        style={{ color: "#111827" }}
+                      >
                         Heads Up for the Week Ahead
                       </div>
                       <div className="text-sm" style={{ color: "#787878" }}>
@@ -332,7 +343,10 @@ const Home = () => {
                       <img src={HistoryIcon} alt="clock" />
                     </div>
                     <div>
-                      <div className="text-sm font-medium text-gray-900">
+                      <div
+                        className="text-sm font-medium text-gray-900"
+                        style={{ color: "#111827" }}
+                      >
                         Math Homework due in 2 hours
                       </div>
                       <div className="text-sm" style={{ color: "#787878" }}>
@@ -352,7 +366,10 @@ const Home = () => {
                       <img src={NewBadgeIcon} alt="new badge" />
                     </div>
                     <div>
-                      <div className="text-sm font-medium text-gray-900">
+                      <div
+                        className="text-sm font-medium text-gray-900"
+                        style={{ color: "#111827" }}
+                      >
                         New Badge Unlocked!
                       </div>
                       <div className="text-sm" style={{ color: "#787878" }}>

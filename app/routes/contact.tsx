@@ -16,9 +16,9 @@ const Contact = () => {
       const response = await fetch(
         "https://wfyqbfeontndczdhegnx.supabase.co/functions/v1/waitlist-processor",
         {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, message, type: "contact" }),
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, message, type: "contact" }),
         }
       );
       if (response.ok) {
@@ -77,7 +77,10 @@ const Contact = () => {
             ) : (
               <>
                 <div className="mb-6">
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label
+                    className="block text-sm font-semibold text-gray-700 mb-2"
+                    style={{ color: "#374151" }}
+                  >
                     Email Address
                   </label>
                   <input
@@ -86,10 +89,14 @@ const Contact = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all text-gray-900 placeholder-gray-400"
                     placeholder="your@email.com"
+                    style={{ color: "#111827" }}
                   />
                 </div>
                 <div className="mb-6">
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label
+                    className="block text-sm font-semibold text-gray-700 mb-2"
+                    style={{ color: "#374151" }}
+                  >
                     Message
                   </label>
                   <textarea
@@ -98,6 +105,7 @@ const Contact = () => {
                     className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all text-gray-900 placeholder-gray-400 resize-none"
                     rows={4}
                     placeholder="How can we help you?"
+                    style={{ color: "#111827" }}
                   ></textarea>
                 </div>
                 <button
