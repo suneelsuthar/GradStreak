@@ -166,22 +166,6 @@ const Footer = () => {
                 </svg>
               </a>
             </div>
-            <p className="text-gray-500 text-sm mb-2">
-              Subscribe to our newsletter
-            </p>
-            <div className="flex">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="px-4 py-2 w-full rounded-l-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-gray-900"
-              />
-              <button
-                className="text-white px-4 rounded-r-lg transition-colors hover:bg-emerald-700 font-medium"
-                style={{ backgroundColor: "#197C2C" }}
-              >
-                Subscribe
-              </button>
-            </div>
           </div>
         </div>
 
